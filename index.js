@@ -1,5 +1,5 @@
-import func from "./lib/domains/accessors/getters/id/index.js";
+import func from "./lib/domains/accessors/generateDomainAccessorsClass.js";
 
-const code = func('Case', 'Id', 'ids');
+const code = func("Case");
 
 console.log(code);
