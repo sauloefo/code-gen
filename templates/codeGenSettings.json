@@ -1,0 +1,16 @@
+{
+	"outputDirectory": "output",
+	"sObjectSpecs": [
+		{
+			"apiName": "Case",
+			"sObjectPluralName": "cases",	
+			"fieldSpecs": [
+				{
+					"apiName": "Id", 
+					"fieldType": "Id",
+					"fieldPluralName": "ids"
+				}
+			]
+		}
+	]
+}
