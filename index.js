@@ -1,5 +1,3 @@
-import func from "./lib/domains/accessors/generateDomainAccessorsClass.js";
+import func from "./lib/domains/accessors/generateDomainAccessorsClassFile.js";
 
-const code = func("Case");
-
-console.log(code);
+func("Case");
