@@ -32,14 +32,14 @@ describe("DomainAccessor class test", () => {
 		}));
 
 		it("It should generate Id getter as expected", () => {
-			const sourceCode = generateFieldGetterForDomain("Case", "Id");
+			const sourceCode = generateFieldGetterForDomain("Case", "Id").sourceCode;
 			const expectedSourceCode = "public Set<Id> getIds(){return getFieldValuesAsSetOfId(Case.Id);}";
 			
 			sourceCode.should.equal(expectedSourceCode, "Id getter for domain accessor class is not as expected.");
 		});
 
 		it("It should generate Id setter as expected", () => {
-			const sourceCode = generateFieldSetterForDomain("Case", "ContactId");
+			const sourceCode = generateFieldSetterForDomain("Case", "ContactId").sourceCode;
 			const expectedSourceCode = "public ICases setContactId(Id newContactId){setField(Case.ContactId,newContactId);return this;}";
 			
 			sourceCode.should.equal(expectedSourceCode, "Id setter for domain accessor class is not as expected.");
