@@ -10,6 +10,24 @@
 					"fieldType": "Id",
 					"pluralName": "ids",
 					"singularName": "id"
+				},
+				{
+					"apiName": "ContactId", 
+					"fieldType": "MasterDetailRelationship",
+					"pluralName": "contactIds",
+					"singularName": "contactId"
+				},
+				{
+					"apiName": "Subject", 
+					"fieldType": "Text",
+					"pluralName": "subjects",
+					"singularName": "subject"
+				},
+				{
+					"apiName": "IsClosed__c", 
+					"fieldType": "Checkbox",
+					"pluralName": "isClosedValues",
+					"singularName": "isClosedValue"
 				}
 			]
 		}

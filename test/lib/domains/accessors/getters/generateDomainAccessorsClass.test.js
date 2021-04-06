@@ -3,8 +3,8 @@ import { describe } from "mocha";
 import chai from "chai";
 const should = chai.should();
 
-import generateIdFieldGetterForDomain from "../../../../../lib/domains/accessors/getters/generateIdFieldGetterForDomain.js";
-import generateIdFieldSetterForDomain from "../../../../../lib/domains/accessors/setters/generateIdFieldSetterForDomain.js";
+import generateFieldGetterForDomain from "../../../../../lib/domains/accessors/generateFieldGetterForDomain.js";
+import generateFieldSetterForDomain from "../../../../../lib/domains/accessors/generateFieldSetterForDomain.js";
 import gcs from "../../../../../lib/tools/codeGenSettings.js";
 
 describe("DomainAccessor class test", () => {
@@ -32,14 +32,14 @@ describe("DomainAccessor class test", () => {
 		}));
 
 		it("It should generate Id getter as expected", () => {
-			const sourceCode = generateIdFieldGetterForDomain("Case", "Id");
+			const sourceCode = generateFieldGetterForDomain("Case", "Id");
 			const expectedSourceCode = "public Set<Id> getIds(){return getFieldValuesAsSetOfId(Case.Id);}";
 			
 			sourceCode.should.equal(expectedSourceCode, "Id getter for domain accessor class is not as expected.");
 		});
 
 		it("It should generate Id setter as expected", () => {
-			const sourceCode = generateIdFieldSetterForDomain("Case", "ContactId");
+			const sourceCode = generateFieldSetterForDomain("Case", "ContactId");
 			const expectedSourceCode = "public ICases setContactId(Id newContactId){setField(Case.ContactId,newContactId);return this;}";
 			
 			sourceCode.should.equal(expectedSourceCode, "Id setter for domain accessor class is not as expected.");
