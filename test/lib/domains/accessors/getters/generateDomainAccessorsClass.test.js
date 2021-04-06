@@ -3,8 +3,8 @@ import { describe } from "mocha";
 import chai from "chai";
 const should = chai.should();
 
-import generateFieldGetterForDomain from "../../../../../lib/domains/accessors/generateFieldGetterForDomain.js";
-import generateFieldSetterForDomain from "../../../../../lib/domains/accessors/generateFieldSetterForDomain.js";
+import { generateFieldGetterForDomain } from "../../../../../lib/domains/accessors/generateFieldGetterForDomain.js";
+import { generateFieldSetterForDomain } from "../../../../../lib/domains/accessors/generateFieldSetterForDomain.js";
 import gcs from "../../../../../lib/tools/codeGenSettings.js";
 
 describe("DomainAccessor class test", () => {
