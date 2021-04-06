@@ -14,12 +14,12 @@ describe("DomainAccessor class test", () => {
 			"sObjectSpecs": [
 				{
 					"apiName": "Case",
-					"sObjectPluralName": "cases",	
+					"pluralName": "cases",	
 					"fieldSpecs": [
 						{
 							"apiName": "Id", 
 							"fieldType": "Id",
-							"fieldPluralName": "ids"
+							"pluralName": "ids"
 						},
 						{
 							"apiName": "ContactId",
@@ -29,7 +29,6 @@ describe("DomainAccessor class test", () => {
 				}
 			]
 		}));
-		after(() => sinon.restore());
 
 		it("It should generate Id getter as expected", () => {
 			const sourceCode = generateIdFieldGetterForDomain("Case", "Id");

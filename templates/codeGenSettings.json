@@ -3,12 +3,13 @@
 	"sObjectSpecs": [
 		{
 			"apiName": "Case",
-			"sObjectPluralName": "cases",	
+			"pluralName": "cases",	
 			"fieldSpecs": [
 				{
 					"apiName": "Id", 
 					"fieldType": "Id",
-					"fieldPluralName": "ids"
+					"pluralName": "ids",
+					"singularName": "id"
 				}
 			]
 		}
