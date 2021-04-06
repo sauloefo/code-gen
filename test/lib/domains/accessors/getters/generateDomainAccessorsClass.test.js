@@ -2,31 +2,47 @@ import { describe } from "mocha";
 // const expect = require('chai').expect;
 import chai from "chai";
 const should = chai.should();
-import sinon from "sinon";
 
 import generateIdFieldGetterForDomain from "../../../../../lib/domains/accessors/getters/generateIdFieldGetterForDomain.js";
-import stringTools from "../../../../../lib/tools/stringTools.js";
+import generateIdFieldSetterForDomain from "../../../../../lib/domains/accessors/setters/generateIdFieldSetterForDomain.js";
+import gcs from "../../../../../lib/tools/codeGenSettings.js";
 
 describe("DomainAccessor class test", () => {
-	after(() => sinon.restore());
-
 	describe("Id-field based members", () => {
+		before(() => gcs.setSettings({
+			"outputDirectory": "output",
+			"sObjectSpecs": [
+				{
+					"apiName": "Case",
+					"sObjectPluralName": "cases",	
+					"fieldSpecs": [
+						{
+							"apiName": "Id", 
+							"fieldType": "Id",
+							"fieldPluralName": "ids"
+						},
+						{
+							"apiName": "ContactId",
+							"singularName": "contactId"
+						}
+					]
+				}
+			]
+		}));
+		after(() => sinon.restore());
+
 		it("It should generate Id getter as expected", () => {
-			const sObjectApiName = "Case";
-			const fieldSpec = { 
-				apiName: "Id",
-				fieldPluralName: "ids"
-			};
-	
-			const upperCaseFirstLetterStub = sinon.stub();
-			upperCaseFirstLetterStub.returns("Ids");
-	
-			sinon.stub(stringTools, "upperCaseFirstLetter").callsFake(upperCaseFirstLetterStub);
-	
-			const sourceCode = generateIdFieldGetterForDomain(sObjectApiName, fieldSpec);
-			const expectedSourceCode = `public Set<Id> getIds(){return getIdFieldValues(Case.Id);}`;
+			const sourceCode = generateIdFieldGetterForDomain("Case", "Id");
+			const expectedSourceCode = "public Set<Id> getIds(){return getIdFieldValues(Case.Id);}";
 			
 			sourceCode.should.equal(expectedSourceCode, "Id getter for domain accessor class is not as expected.");
+		});
+
+		it("It should generate Id setter as expected", () => {
+			const sourceCode = generateIdFieldSetterForDomain("Case", "ContactId");
+			const expectedSourceCode = "public ICases setContactId(Id newContactId){setIdField(Case.ContactId,newContactId);return this;}";
+			
+			sourceCode.should.equal(expectedSourceCode, "Id setter for domain accessor class is not as expected.");
 		});
 	});
 });
