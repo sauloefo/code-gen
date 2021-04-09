@@ -3,7 +3,7 @@
 	"sObjectSpecs": [
 		{
 			"apiName": "Case",
-			"pluralName": "cases",	
+			"pluralName": "cases",
 			"fieldSpecs": [
 				{
 					"apiName": "Id", 
@@ -29,7 +29,8 @@
 					"pluralName": "isClosedValues",
 					"singularName": "isClosedValue"
 				}
-			]
+			],
+			"singularName": "case"
 		}
 	]
 }
