@@ -5,8 +5,8 @@ import cgs from "./lib/tools/codeGenSettings.js";
 import { createDomainAccessorsClassFile } from "./lib/domains/accessors/createDomainAccessorsClassFile.js";
 import { createDomainInterfaceFile } from "./lib/domains/interface/createDomainInterfaceFile.js";
 
-import { createTraceableRecordClassFile } from "./lib/domains/traceable-record/createTraceableRecordClassFile.js";
-import { createTraceableRecordInterfaceFile } from "./lib/domains/traceable-record-interface/createTraceableRecordInterfaceFile.js";
+import { createTraceableRecordClassFile } from "./lib/traceable-record/createTraceableRecordClassFile.js";
+import { createTraceableRecordInterfaceFile } from "./lib/traceable-record/interface/createTraceableRecordInterfaceFile.js";
 
 const formatFiles = true;
 const sObjectApiName = "Case";
